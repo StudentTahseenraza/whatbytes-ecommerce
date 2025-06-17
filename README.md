@@ -22,17 +22,6 @@
 - **Type Safety**: Built with TypeScript for robust type checking and better developer experience.
 
 
-### Home Page
-![Home Page](https://via.placeholder.com/800x400.png?text=Home+Page)
-
-### Product Detail Page
-![Product Detail Page](https://via.placeholder.com/800x400.png?text=Product+Detail+Page)
-
-### Cart Page
-![Cart Page](https://via.placeholder.com/800x400.png?text=Cart+Page)
-
-*Replace the placeholder images above with actual screenshots of your application.*
-
 ---
 
 ## 🛠️ Tech Stack
