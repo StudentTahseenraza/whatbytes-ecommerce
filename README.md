@@ -1,6 +1,5 @@
 # Whatbytes Ecommerce
 
-![Whatbytes Ecommerce Banner](https://via.placeholder.com/1200x400.png?text=Whatbytes+Ecommerce)  
 *A modern e-commerce platform built with Next.js, TypeScript, and Tailwind CSS.*
 
 ---
