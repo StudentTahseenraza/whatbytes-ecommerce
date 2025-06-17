@@ -1,4 +1,4 @@
-// components/Sidebar.tsx
+// src/components/Sidebar.tsx
 'use client';
 
 import { useState, useEffect } from "react";
@@ -44,12 +44,12 @@ export default function Sidebar({ setFilters }: SidebarProps) {
     } else {
       params.delete("category");
     }
-    params.set("price", price);
+    params.set("price", price.toString());
     router.push(`/?${params.toString()}`, { scroll: false });
   }, [category, price, router, searchParams, setFilters]);
 
   return (
-    <div className="w-64 h-full pt-8 pl-8 mt-4 ml-4 text-white bg-blue-600">
+    <div className="w-64 h-full pt-8 pl-8 mt-4 ml-4 text-white bg-blue-700">
       <h2 className="mb-6 text-xl font-bold tracking-wide uppercase">Filters</h2>
       <div className="mb-8">
         <h3 className="mb-3 text-sm font-semibold uppercase">Category</h3>
@@ -70,6 +70,7 @@ export default function Sidebar({ setFilters }: SidebarProps) {
       <div>
         <h3 className="mb-3 text-sm font-semibold uppercase">Price</h3>
         <input
+          title="Price"
           type="range"
           min="0"
           max="5000"

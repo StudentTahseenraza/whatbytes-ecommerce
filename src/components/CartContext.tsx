@@ -1,7 +1,7 @@
-// components/CartContext.tsx
+// src/components/CartContext.tsx
 'use client';
 
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 // Define the type for a cart item
 interface CartItem {
@@ -9,7 +9,7 @@ interface CartItem {
   title: string;
   price: number;
   image: string;
-  quantity: number; // Make quantity required
+  quantity: number;
   category?: string;
   description?: string;
   rating?: number;
@@ -29,7 +29,7 @@ interface Product {
 // Define the type for the context value
 interface CartContextType {
   cart: CartItem[];
-  addToCart: (product: Product) => void; // Accept Product type
+  addToCart: (product: Product) => void;
   updateQuantity: (id: number, quantity: number) => void;
   removeFromCart: (id: number) => void;
 }
@@ -43,7 +43,21 @@ interface CartProviderProps {
 }
 
 export function CartProvider({ children }: CartProviderProps) {
-  const [cart, setCart] = useState<CartItem[]>([]);
+  const [cart, setCart] = useState<CartItem[]>(() => {
+    // Load cart from localStorage on initial render
+    if (typeof window !== "undefined") {
+      const savedCart = localStorage.getItem("cart");
+      return savedCart ? JSON.parse(savedCart) : [];
+    }
+    return [];
+  });
+
+  // Save cart to localStorage whenever it changes
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }, [cart]);
 
   const addToCart = (product: Product) => {
     setCart((prevCart) => {
@@ -55,7 +69,6 @@ export function CartProvider({ children }: CartProviderProps) {
             : item
         );
       }
-      // Add quantity: 1 to the product to create a CartItem
       return [...prevCart, { ...product, quantity: 1 }];
     });
   };

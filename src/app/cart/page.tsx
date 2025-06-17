@@ -1,29 +1,24 @@
-// app/cart/page.tsx
+// src/app/cart/page.tsx
 'use client';
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import Image from "next/image";
 import { useCart } from "../../components/CartContext";
 import { Trash2 } from "lucide-react";
-import { useState } from "react";
 
 export default function Cart() {
   const { cart, updateQuantity, removeFromCart } = useCart();
-  const [searchQuery, setSearchQuery] = useState("");
 
   const total = cart.reduce(
-    (sum, item) => sum + item.price * (item.quantity ?? 1), // Use ?? to provide a default of 1
+    (sum, item) => sum + item.price * item.quantity,
     0
   );
-
-  const handleSearch = (query: string) => {
-    setSearchQuery(query);
-  };
 
   return (
     <div className="flex flex-col min-h-screen">
       <div className="w-full mx-auto max-w-7xl">
-        <Header onSearch={handleSearch} />
+        <Header onSearch={() => {}} /> {/* Pass a no-op function since Header requires onSearch */}
         <main className="flex-1 p-6 bg-light-blue-gray">
           <h2 className="mb-6 text-2xl font-bold text-gray-800">Cart</h2>
           {cart.length === 0 ? (
@@ -35,12 +30,14 @@ export default function Cart() {
                   key={item.id}
                   className="flex items-center py-3 border-b border-gray-200"
                 >
-                  <img
+                  <Image
                     src={item.image}
                     alt={item.title}
+                    width={64}
+                    height={64}
                     className="object-contain w-16 h-16 mr-4 rounded"
                   />
-                  <div className="flex-1">
+                  <div className="flex-1" >
                     <h3 className="text-lg font-semibold text-gray-800">{item.title}</h3>
                     <p className="mt-1 text-gray-800">$ {item.price}</p>
                     <div className="flex items-center mt-2">
@@ -48,10 +45,11 @@ export default function Cart() {
                         Quantity:
                       </label>
                       <input
+                        title="Quantity"
                         id={`quantity-${item.id}`}
                         type="number"
                         min="1"
-                        value={item.quantity ?? 1} // Use ?? to provide a default of 1
+                        value={item.quantity}
                         onChange={(e) =>
                           updateQuantity(item.id, parseInt(e.target.value))
                         }
@@ -60,6 +58,7 @@ export default function Cart() {
                     </div>
                   </div>
                   <button
+                    title="Remove"
                     onClick={() => removeFromCart(item.id)}
                     className="text-red-500 hover:text-red-600"
                   >

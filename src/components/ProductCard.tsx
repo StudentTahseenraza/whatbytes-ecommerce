@@ -1,7 +1,8 @@
-// components/ProductCard.tsx
+// src/components/ProductCard.tsx
 'use client';
 
 import Link from "next/link";
+import Image from "next/image"; // Add this import
 import { Star } from "lucide-react";
 import { useCart } from "./CartContext";
 
@@ -30,9 +31,11 @@ export default function ProductCard({ product, isFeatured = false }: ProductCard
       }`}
     >
       <Link href={`/product/${product.id}`}>
-        <img
+        <Image
           src={product.image}
           alt={product.title}
+          width={isFeatured ? 150 : 300} // Adjust width based on layout
+          height={192} // h-48 = 192px
           className={isFeatured ? "w-1/3 h-48 object-contain" : "w-full h-48 object-contain"}
         />
       </Link>
