@@ -1,0 +1,76 @@
+[
+  {
+    "id": 1,
+    "title": "Running Shoes",
+    "price": 99,
+    "image": "/images/SportsShoe.webp",
+    "description": "High-performance running shoes designed for comfort and speed.",
+    "category": "Sports",
+    "rating": 4.5
+  },
+  
+  {
+    "id": 2,
+    "title": "Leather Bag",
+    "price": 129,
+    "image": "/images/bag.webp",
+    "description": "Durable and spacious leather bag suitable for travel and daily use.",
+    "category": "Travel",
+    "rating": 4.5
+  },
+  {
+    "id": 3,
+    "title": "Smart Watch",
+    "price": 249,
+    "image": "/images/Watch.webp",
+    "description": "Stylish smart watch with fitness tracking features.",
+    "category": "Wearables",
+    "rating": 4.6
+  },
+  {
+    "id": 4,
+    "title": "Sunglasses",
+    "price": 149,
+    "image": "/images/RayGlass.jpeg",
+    "description": "Fashionable sunglasses with UV protection.",
+    "category": "Fashion",
+    "rating": 4.4
+  },
+  {
+    "id": 5,
+    "title": "Camera",
+    "price": 499,
+    "image": "/images/DigitalCamera.webp",
+    "description": "High-resolution digital camera for photography enthusiasts.",
+    "category": "Photography",
+    "rating": 4.8
+  },
+  {
+    "id": 6,
+    "title": "T-Shirt",
+    "price": 29,
+    "image": "/images/Tshirt.jpeg",
+    "description": "Comfortable cotton T-Shirt available in various colors.",
+    "category": "Fashion",
+    "rating": 4.2
+  },
+  {
+    "id": 7,
+    "title": "Headphones",
+    "price": 89,
+    "image": "/images/Headphone.jpeg",
+    "description": "Wireless headphones with noise cancellation.",
+    "category": "Audio",
+    "rating": 4.7
+  },
+  {
+    "id": 8,
+    "title": "Smartphone",
+    "price": 699,
+    "image": "/images/SamsungPhone.jpeg",
+    "description": "Lorem ipsum dolor amet, consectetur euisagend.",
+    "category": "Electronics",
+    "rating": 5
+  }
+  
+]
